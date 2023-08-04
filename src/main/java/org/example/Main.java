@@ -14,11 +14,11 @@ public class Main {
             copiedDir.mkdir();
         }
         for (String f : sourceDir.list()) {
-            copyDirectoryCompatibityMode(new File(sourceDir, f), new File(copiedDir, f));
+            copyDirRecursive(new File(sourceDir, f), new File(copiedDir, f));
         }
     }
 
-    public static void copyDirectoryCompatibityMode(File source, File dest) throws IOException {
+    public static void copyDirRecursive(File source, File dest) throws IOException {
         if (source.isDirectory()) {
             copyDir(source, dest);
         } else {
